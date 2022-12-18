@@ -1,37 +1,59 @@
-class Rectangle:
-    def __init__(self, width, height) -> None:
-        self.width = width
-        self.height = height
+numbers1 = frozenset([1, 2, 3, 4, 5])
+numbers2 = frozenset([2, 3, 4, 5])
+numbers3 = frozenset([6, 7])
 
-    def area(self):
-        return self.width * self.height
+# Combining both of them using "|" operator
+# You can also use union() method
+combined = numbers1 | numbers2
+print("Combined set:", combined)
 
-    def __str__(self) -> str:
-        return f"{self.__class__.__name__} with width: {self.width} and height: {self.height}"    
-    
-    def __repr__(self) -> str:
-        return f"Represent {self.__class__.__name__}"
-    
-    def __eq__(self, __o: object) -> bool:
-        """
-        This method will be used to compare one object of the class to other object in the same class
+# Selecting common elements using "&" operator
+# You can also use intersection() method
+intersect = numbers1 & numbers2
+print("Intersected set:", intersect)
 
-        Args:
-            __o (object): another object of Rectangle
 
-        Returns:
-            bool: _description_
-        """
-        # Why we don't use type(o) at here. Because if the object is the instance of the sub class of Ractange -> the condition will not be true
-        # So we use isinstance method -> it will used not for only class but also subclass
-        return bool(isinstance(__o, Rectangle) and self.width == __o.width and self.height == __o.height)
+# Selecting elements which are not common using "-" operator
+# You can also use difference() method
+difference = numbers1 - numbers2
+print("Difference set:", difference)
 
-    def __lt__(self, object):
-        if isinstance(object, Rectangle):
-            return self.area() < object.area()
-        else:
-            return NotImplemented
-r1 = Rectangle(2, 3)
-r2 = Rectangle(1, 3)
 
-r1 < 100
+# It returns True if sets (frozenset) have no common items otherwise False
+Disjoint = numbers1.isdisjoint(numbers2)
+print("Disjoint:", Disjoint)
+
+numbers1
+numbers2
+numbers3
+
+
+# It returns True if sets (frozenset) have no common items otherwise False
+Disjoint = numbers1.isdisjoint(numbers3)
+print("Disjoint:", Disjoint)
+
+
+# It returns True if all the items of a set (frozenset) are common in another set (frozenset)
+Subset = numbers1.issubset(numbers2)
+print("Subset:", Subset)
+
+
+# It returns True if all the items of a set (frozenset) are common in another set (frozenset)
+Subset = numbers2.issubset(numbers1)
+print("Subset:", Subset)
+
+
+# It returns True if a set (frozenset) has all items present in another set (frozenset)
+Superset = numbers1.issuperset(numbers2)
+print("Superset:", Superset)
+
+
+# It returns True if all the items of a set (frozenset) are common in another set (frozenset)
+Superset = numbers2.issuperset(numbers1)
+print("Superset:", Superset)
+
+my_list = [1, 2]
+my_set = {"key1", "key2"}
+
+my_dict = dict(zip(my_set, my_list))
+my_dict
