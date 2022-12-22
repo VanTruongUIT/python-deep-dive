@@ -57,3 +57,12 @@ my_set = {"key1", "key2"}
 
 my_dict = dict(zip(my_set, my_list))
 my_dict
+
+
+first_number = 10
+second_number = 10
+third_number = second_number
+
+print((hex(id(first_number)) == hex(id(second_number))))
+print((hex(id(second_number)) == hex(id(third_number))))
+print((hex(id(first_number)) == hex(id(third_number))))
