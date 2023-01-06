@@ -1,0 +1,1 @@
+eggs = "moduleZ.py"
