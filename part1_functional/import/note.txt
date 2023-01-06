@@ -1,0 +1,38 @@
+There are two types of packages
+    + regular packages: is typically implemented as a diractory containing an __init__.py file.
+    + namespace packages
+
+If the named module is not found in sys.modules, then Python's import protocal is invoked to find and load the module.
+    This protocal consists of two conceptual objects:
+        + finders
+        + loaders
+
+https://realpython.com/python-import/#dynamic-imports
+```
+$ python moduleX.py
+Traceback (most recent call last):
+  File "moduleX.py", line 4, in <module>
+    from .moduleY import spam as ham
+ModuleNotFoundError: No module named '__main__.moduleY'; '__main__' is not a package
+
+
+--
+
+$ python moduleX.py
+Traceback (most recent call last):
+  File "moduleX.py", line 4, in <module>
+    from . import moduleY
+ImportError: cannot import name 'moduleY' from '__main__' (moduleX.py)
+
+--
+
+$ python moduleX.py
+Traceback (most recent call last):
+  File "moduleX.py", line 4, in <module>
+    from ..subpackage1 import moduleY
+ValueError: attempted relative import beyond top-level package
+
+--
+
+
+```

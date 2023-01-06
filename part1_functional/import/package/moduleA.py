@@ -1,0 +1,1 @@
+foo = "moduleA.py"
