@@ -1,13 +1,17 @@
+import sys
 
 
 # from subpackage2.moduleZ import class_name
 # print(class_name)
 
 # ------------------ We can import moduleA
+for x in sys.path:
+    print(x)
+import package.moduleA as a 
+print(dir(a))
 
-# import moduleA
-# print(moduleA.foo)
-
+from package import moduleA
+print(moduleA.foo)
 
 # ------------------ We can import subpackage2.moduleZ.eggs
 
@@ -15,12 +19,10 @@
 # print(eggs)
 
 
-import sys 
-import os
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR))
+# import sys 
+# import os
+# SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from .moduleY import spam
-print(spam)
-print(__name__)
-print(__package__)
+# from . import moduleY
+# print(moduleY.spam)
